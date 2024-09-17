@@ -12,7 +12,7 @@
             <VerticalStackLayout Padding="10"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Border Margin="0,-20,0,0"
+                <Border Margin="0,20,0,0"
                         Padding="8"
                         Stroke="Gray"
                         StrokeThickness="1"

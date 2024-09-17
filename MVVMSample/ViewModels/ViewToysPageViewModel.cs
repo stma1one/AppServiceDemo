@@ -11,12 +11,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MVVMSample.ViewModels
 {
-    class ViewToysPageViewModel:ViewModelBase
+   public class ViewToysPageViewModel:ViewModelBase
     {
         #region Fields
         private double? price;
         private ObservableCollection<Toy> toys;
-        private ToyService toyService;
+        private IToys toyService;
         private List<Toy> fullList;
         private bool isRefreshing;
         
@@ -136,11 +136,11 @@ namespace MVVMSample.ViewModels
         #endregion
 
         #region Constructor
-        public ViewToysPageViewModel()
+        public ViewToysPageViewModel(IToys service)
         {
             #region Init Data
             Price = null;
-            toyService=new ToyService();
+            toyService=service;
          //   toys=new ObservableCollection<Toy>(toyService.GetToys());
            
            
@@ -238,6 +238,7 @@ namespace MVVMSample.ViewModels
             await Shell.Current.GoToAsync("/Details", data);
             //נבטל את הבחירה בחזרה למסך הקודם
             SelectedToy = null;
+            
 
            
         }

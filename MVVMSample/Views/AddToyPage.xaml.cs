@@ -8,11 +8,11 @@ namespace MVVMSample.Views;
 public partial class AddToyPage : ContentPage
 {
 	
-    public AddToyPage()
+    public AddToyPage(AddToysPageViewModel vm)
 	{
         
 		InitializeComponent();
-        BindingContext = new AddToysPageViewModel();
+        BindingContext = vm;
        
 	}
 

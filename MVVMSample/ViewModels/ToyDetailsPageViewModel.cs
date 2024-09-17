@@ -15,9 +15,9 @@ namespace MVVMSample.ViewModels
     [QueryProperty(nameof(SelectedToy),"Toy")]
     [QueryProperty(nameof(Id),"id")]
     #endregion
-    class ToyDetailsPageViewModel : ViewModelBase
+   public class ToyDetailsPageViewModel : ViewModelBase
     {
-        private ToyService toyService;
+        private IToys toyService;
         private int id;
         private Toy? selectedToy;
 
@@ -66,9 +66,9 @@ namespace MVVMSample.ViewModels
 
         public string SecondHandStatus => SelectedToy?.IsSecondHand == true ? "Condition: Second Hand" : "Condition: New";
 
-        public ToyDetailsPageViewModel()
+        public ToyDetailsPageViewModel(IToys service)
         {
-            toyService = new ToyService();
+            toyService = service ;
             
 
         }

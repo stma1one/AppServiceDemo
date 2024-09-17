@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace MVVMSample.ViewModels
 {
-    class AddToysPageViewModel : ViewModelBase
+   public  class AddToysPageViewModel : ViewModelBase
     {
         #region list of toys and toys Type will be moved to Service Folder
         //List<Toy> toys = new();//רשימת הצעצועים
@@ -45,7 +45,7 @@ namespace MVVMSample.ViewModels
         private ToyTypes? selectedType;//סוג צעצוע נבחר
 
         //--------
-        private ToyService? toyService;//שרות לקבלת נתוני צעצועים
+        private IToys? toyService;//שרות לקבלת נתוני צעצועים
         private string? message;
 
         public string? Message
@@ -170,7 +170,7 @@ namespace MVVMSample.ViewModels
             ToyTypes = await toyService.GetToyTypes();
         }
         #region Constructor
-        public AddToysPageViewModel()
+        public AddToysPageViewModel(IToys service)
         {
             //connect the property with the action method to perform
             //Command([method Name]) --> for void methods
@@ -178,7 +178,7 @@ namespace MVVMSample.ViewModels
 
             AddToyCommand = new Command<string>(AddnewToy,(x)=>CanAddToy());
 
-            toyService=new ToyService();//ממשק לשירות צעצועים
+            toyService=service;//ממשק לשירות צעצועים
             serviceCommand = GetToysTypes();
 
 

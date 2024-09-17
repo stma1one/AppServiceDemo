@@ -4,12 +4,12 @@ namespace MVVMSample
 {
     public partial class App : Application
     {
-        public App()
+        public App(LoginPage page)
         {
             InitializeComponent();
             //שינוי הצבעה ל 
             //SHELL
-            MainPage = new LoginPage();
+            MainPage = page;
         }
     }
 }

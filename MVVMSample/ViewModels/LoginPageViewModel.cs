@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace MVVMSample.ViewModels
 {
-     class LoginPageViewModel: ViewModelBase
+    public class LoginPageViewModel: ViewModelBase
     {
         #region Fields
         private IToys service;//service
@@ -22,9 +22,9 @@ namespace MVVMSample.ViewModels
         #region Commands
         public ICommand LoginCommand { get; set; }
         #endregion
-        public LoginPageViewModel()
+        public LoginPageViewModel(IToys service)
         {
-            service = new ToyService();
+            this.service = service;
             InServerCall = false;
             
             this.LoginCommand = new Command(OnLogin);

@@ -5,10 +5,10 @@ namespace MVVMSample.Views;
 
 public partial class ViewToysPage : ContentPage
 {
-	public ViewToysPage()
+	public ViewToysPage(ViewToysPageViewModel vm)
 	{
 		InitializeComponent();
-		BindingContext = new ViewToysPageViewModel();
+		BindingContext = vm;
 		
 	}
   //  protected override void OnAppearing()

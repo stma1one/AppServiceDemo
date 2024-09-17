@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using MVVMSample.Services;
+using MVVMSample.ViewModels;
+using MVVMSample.Views;
 
 namespace MVVMSample
 {
@@ -22,9 +25,34 @@ namespace MVVMSample
 #endif
 
             #region Dependency Inject the views, viewmodel and builder
+            //רישום של דפים
+          //  builder.Services.AddSingleton<AddToyPage>();
+            builder.RegisterViews().RegisterServices().RegisterViewModels();
+           
             
             #endregion
             return builder.Build();
+        }
+        public static MauiAppBuilder RegisterViews(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<AddToyPage>();
+            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<ToyDetailsPage>();
+            builder.Services.AddSingleton<ViewToysPage>();
+            return builder;
+        }
+        public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder builder)
+        {
+            builder.Services.AddTransient<AddToysPageViewModel>();
+            builder.Services.AddSingleton<LoginPageViewModel>();
+            builder.Services.AddSingleton<ToyDetailsPageViewModel>();
+            builder.Services.AddSingleton<ViewToysPageViewModel>();
+            return builder;           
+        }
+        public static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
+        {
+            builder.Services.AddSingleton<IToys, ToyWebServiceProxy>();
+            return builder;
         }
     }
 }

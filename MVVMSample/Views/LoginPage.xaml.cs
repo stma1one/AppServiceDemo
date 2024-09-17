@@ -6,9 +6,9 @@ namespace MVVMSample.Views;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+	public LoginPage(LoginPageViewModel vm)
 	{
-		this.BindingContext = new LoginPageViewModel();
+		this.BindingContext = vm;
 		InitializeComponent();
 		
 	}

@@ -3,9 +3,9 @@ namespace MVVMSample.Views;
 
 public partial class ToyDetailsPage : ContentPage
 {
-	public ToyDetailsPage()
+	public ToyDetailsPage(ToyDetailsPageViewModel vm)
 	{
 		InitializeComponent();
-		BindingContext = new ToyDetailsPageViewModel();
+		BindingContext = vm ;
 	}
 }

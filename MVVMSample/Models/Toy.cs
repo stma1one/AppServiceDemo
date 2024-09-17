@@ -9,7 +9,7 @@ namespace MVVMSample.Models;
 /// <summary>
 /// מחלקה המייצגת צעצוע
 /// </summary>
-    class Toy
+ public   class Toy
     {
         public int Id { get; set; }//קוד זיהוי
         public string? Name { get; set; }    //שם צעצוע
